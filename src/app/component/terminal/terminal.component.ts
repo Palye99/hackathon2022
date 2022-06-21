@@ -3,6 +3,7 @@ import {NgTerminal} from 'ng-terminal';
 import {Terminal} from 'xterm';
 import {FormControl} from '@angular/forms';
 import {Subject} from 'rxjs';
+import {CommandService} from '../../service/command.service';
 
 @Component({
   selector: 'app-terminal',
@@ -20,7 +21,7 @@ export class TerminalComponent implements OnInit, AfterViewInit {
   inputControl = new FormControl();
   writeSubject = new Subject<string>();
 
-  constructor() { }
+  constructor(private commandService: CommandService) { }
 
   async ngAfterViewInit(): Promise<void> {
 
@@ -31,16 +32,25 @@ export class TerminalComponent implements OnInit, AfterViewInit {
     await new Promise(f => setTimeout(f, 8000));
 
     this.child.write('hello world');
-    this.child.write('\r\n$ ');
+    this.child.write('\r\n');
 
     this.isLoading = false;
     console.log('ready', this.isLoading);
+
+    this.newCommand('test');
   }
 
   ngOnInit(): void { }
 
   onKeyInput(event: string): void {
     this.keyInput = event;
+  }
+
+  newCommand(command: string): void {
+    this.commandService.execCommand('tree').subscribe(res => {
+      console.log('TEST COMMAND', res);
+      this.child.write(`\r\n$ ${res.result}`);
+    });
   }
 
   write(): void {
