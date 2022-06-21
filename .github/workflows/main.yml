@@ -1,8 +1,6 @@
 name: Angular CI/CD Webhackaton
 on:
   push:
-    paths:
-      - 'webhackaton/**'
     branches:
       - master
       - dev
