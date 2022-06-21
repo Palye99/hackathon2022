@@ -52,9 +52,4 @@ export class TerminalComponent implements OnInit, AfterViewInit {
       this.child.write(`\r\n$ ${res.result}`);
     });
   }
-
-  write(): void {
-    // tslint:disable-next-line:no-eval
-    this.writeSubject.next(eval(`'${this.inputControl.value}'`));
-  }
 }
