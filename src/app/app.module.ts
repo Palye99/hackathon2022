@@ -7,12 +7,14 @@ import { LoginComponent } from './component/login/login.component';
 import { TerminalComponent } from './component/terminal/terminal.component';
 import {NgTerminalModule} from 'ng-terminal';
 import {HttpClientModule} from '@angular/common/http';
+import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TerminalComponent
+    TerminalComponent,
+    HomeComponent
   ],
     imports: [
         BrowserModule,
