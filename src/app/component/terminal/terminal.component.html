@@ -1,0 +1,8 @@
+<div *ngIf="isLoading" class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<ng-terminal *ngIf="!isLoading" #term
+             [dataSource]="writeSubject"
+             (keyInput)="onKeyInput($event)"
+             [ngClass]="'ng-terminal'">
+</ng-terminal>

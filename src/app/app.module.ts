@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/login/login.component';
 import { TerminalComponent } from './component/terminal/terminal.component';
+import {NgTerminalModule} from 'ng-terminal';
 
 @NgModule({
   declarations: [
@@ -12,10 +13,11 @@ import { TerminalComponent } from './component/terminal/terminal.component';
     LoginComponent,
     TerminalComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgTerminalModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

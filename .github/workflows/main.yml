@@ -1,6 +1,8 @@
-name: Angular CI/CD
+name: Angular CI/CD Webhackaton
 on:
   push:
+    paths:
+      - 'webhackaton/**'
     branches:
       - master
       - dev
@@ -29,7 +31,7 @@ jobs:
         with:
           # caching node_modules
           path: node_modules
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('webhackaton/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
