@@ -11,6 +11,9 @@ export class HomeComponent implements OnInit {
   selectedCloud: string = "AWS";
   isAwsSelected: boolean = true;
   ipAddress: string = "";
+  publicIP: string = "";
+  instanceName: string = '';
+  publicKey: string = '';
 
   constructor(private ip: IpServiceService) { }
 
@@ -39,6 +42,11 @@ export class HomeComponent implements OnInit {
   changeCloud(event: any) {
     this.selectedCloud = event.target.value;
     this.isAwsSelected = this.checkIsAwsSelected();
+  }
+
+  sendRequest() {
+    
+
   }
 
 }

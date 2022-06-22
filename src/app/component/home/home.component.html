@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <form id="terra-form">
-    <h2>Terra-Form</h2>
+    <h2>Terraform</h2>
     <hr>
 
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cloud mb-2"
@@ -11,8 +11,8 @@
     </svg>
 
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="terra-formInputKeyName" placeholder=" ">
-        <label for="terra-formInputKeyName">Nom de la clef - <svg xmlns="http://www.w3.org/2000/svg" width="16"
+        <input type="text" class="form-control" id="terra-formInputKeyName" placeholder=" " [(ngModel)]="instanceName">
+        <label for="terra-formInputKeyName">Nom de l'instance - <svg xmlns="http://www.w3.org/2000/svg" width="16"
                 height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
                 <path
                     d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z" />
@@ -23,7 +23,7 @@
 
     <div class="row g-3 mb-3">
         <div class="form-floating col-md-11">
-            <input type="text" class="form-control" id="terra-formInputPublicey" placeholder=" " value="{{ipAddress}}">
+            <input type="text" class="form-control" id="terra-formInputPublicey" placeholder=" " value="{{ipAddress}}" [(ngModel)]="publicIP">
             <label for="terra-formInputPublicKey">Adresse IP publique - <svg xmlns="http://www.w3.org/2000/svg"
                     width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
                     <path
@@ -41,7 +41,7 @@
     </div>
 
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="terra-formInputIp" placeholder=" ">
+        <input type="text" class="form-control" id="terra-formInputIp" placeholder=" " [(ngModel)]="publicKey">
         <label for="terra-formInputPublicKey">Clef publique - <svg xmlns="http://www.w3.org/2000/svg" width="16"
                 height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
                 <path
@@ -86,7 +86,6 @@
     </div>
 
     <button type="button" id="terra-formSubmitBtn" class="btn btn-success">
-        Envoyer
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cloud-arrow-up"
             viewBox="0 0 16 16">
             <path fill-rule="evenodd"
