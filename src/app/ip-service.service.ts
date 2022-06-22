@@ -11,7 +11,6 @@ export class IpServiceService {
 
   public getIPAddress(): Observable<any> {
     console.log('request to ip');
-    // return this.http.get('https://api.ipify.org/?format=json');
     return this.http.get('https://api.my-ip.io/ip.json');
   }
 

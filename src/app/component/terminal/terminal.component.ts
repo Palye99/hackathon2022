@@ -37,7 +37,7 @@ export class TerminalComponent implements OnInit, AfterViewInit {
     this.isLoading = false;
     console.log('ready', this.isLoading);
 
-    this.newCommand('test');
+    this.newCommand('tree');
   }
 
   ngOnInit(): void { }
@@ -47,9 +47,11 @@ export class TerminalComponent implements OnInit, AfterViewInit {
   }
 
   newCommand(command: string): void {
-    this.commandService.execCommand('tree').subscribe(res => {
+    this.commandService.execCommand(command).subscribe(res => {
       console.log('TEST COMMAND', res);
       this.child.write(`\r\n$ ${res.result}`);
+      this.child.write('\r\n');
+      this.child.write(`\r\n$ `);
     });
   }
 }
