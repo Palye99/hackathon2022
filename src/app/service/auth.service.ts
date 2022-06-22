@@ -23,19 +23,6 @@ export class AuthService {
     );
   }
 
-  // authenticate(username, password) {
-  //   const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-  //   return this.httpClient.get<User>('http://localhost:8080/employees/authenticate',{headers}).pipe(
-  //     map(
-  //       userData => {
-  //         sessionStorage.setItem('username',username);
-  //         return userData;
-  //       }
-  //     )
-  //
-  //   );
-  // }
-
   isUserLoggedIn(): any {
     const user = sessionStorage.getItem('username');
     // console.log(!(user === null))

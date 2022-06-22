@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.authService.isUserLoggedIn()) {
+      this.goToHome();
+    }
   }
 
   loginSubmitEvent(): void {
@@ -27,9 +30,13 @@ export class LoginComponent implements OnInit {
     this.authService.authenticate(this.login, this.password).subscribe(res => {
       console.log('res', res);
       if (res) {
-        this.router.navigateByUrl('/home');
+        this.goToHome();
       }
     });
+  }
+
+  goToHome(): void {
+    this.router.navigateByUrl('/home');
   }
 
 }
