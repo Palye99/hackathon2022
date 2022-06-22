@@ -10,7 +10,7 @@ export class BasicAuthHtppInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): any {
 
-    if (sessionStorage.getItem('username') && sessionStorage.getItem('token')) {
+    if (sessionStorage.getItem('username') && sessionStorage.getItem('token') && !req.url.includes('ip')) {
       const auth = sessionStorage.getItem('token');
       console.log('UPDATE HEADERS', typeof auth);
       console.log(auth);

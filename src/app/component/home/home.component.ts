@@ -20,19 +20,20 @@ export class HomeComponent implements OnInit {
 
   getIP() {
     this.ip.getIPAddress().subscribe((res: any) => {
+      console.log('TEST IP', res);
       this.ipAddress = res.ip;
     });
   }
 
   searchIP() {
-    this.ipAddress = "";
+    this.ipAddress = '';
     this.getIP();
   }
 
   clouds = { AWS: true, Azure: false };
 
   checkIsAwsSelected() {
-    return this.selectedCloud === "AWS";
+    return this.selectedCloud === 'AWS';
   }
 
   changeCloud(event: any) {
