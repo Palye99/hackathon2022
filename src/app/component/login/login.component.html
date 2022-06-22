@@ -1,14 +1,16 @@
+<app-navbar></app-navbar>
+
 <form id="login-form">
     <h2>Connexion</h2>
     <hr>
     <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingEmail" placeholder=" " value="">
+        <input type="email" class="form-control" id="floatingEmail" placeholder=" " name="login" [(ngModel)]="login">
         <label for="floatingEmail">@ - Adresse Email</label>
         <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre e-mail avec un tiers.</div>
     </div>
 
     <div class="form-floating">
-        <input type="password" class="form-control" id="floatingPassword" placeholder=" ">
+        <input type="password" class="form-control" id="floatingPassword" placeholder=" " name="password" [(ngModel)]="password">
         <label for="floatingPassword">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock"
                 viewBox="0 0 16 16">
