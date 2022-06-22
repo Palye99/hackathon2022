@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IpServiceService } from 'src/app/ip-service.service';
+import {CommandService} from '../../service/command.service';
 
 @Component({
   selector: 'app-home',
@@ -15,38 +16,39 @@ export class HomeComponent implements OnInit {
   instanceName: string = '';
   publicKey: string = '';
 
-  constructor(private ip: IpServiceService) { }
+  constructor(private ip: IpServiceService, private commandService: CommandService) { }
 
   ngOnInit(): void {
     this.getIP();
   }
 
-  getIP() {
+  getIP(): void {
     this.ip.getIPAddress().subscribe((res: any) => {
       console.log('TEST IP', res);
       this.ipAddress = res.ip;
     });
   }
 
-  searchIP() {
+  searchIP(): void {
     this.ipAddress = '';
     this.getIP();
   }
 
   clouds = { AWS: true, Azure: false };
 
-  checkIsAwsSelected() {
+  checkIsAwsSelected(): boolean {
     return this.selectedCloud === 'AWS';
   }
 
-  changeCloud(event: any) {
+  changeCloud(event: any): void {
     this.selectedCloud = event.target.value;
     this.isAwsSelected = this.checkIsAwsSelected();
   }
 
-  sendRequest() {
-    
-
+  sendRequest(): void {
+    this.commandService.execTerraform(this.selectedCloud, this.isAwsSelected, this.ipAddress, this.publicIP, this.instanceName, this.publicKey).subscribe(res => {
+      console.log('resr Terraform', res);
+    });
   }
 
 }

@@ -16,4 +16,8 @@ export class CommandService {
   test(): Observable<any> {
     return this.http.get('http://localhost:8080/api/command');
   }
+
+  execTerraform(selectedCloud: string, isAwsSelected: boolean, ipAddress: string, publicIP: string, instanceName: string, publicKey: string): Observable<any> {
+    return this.http.post('http://localhost:8080/api/command/terraform', {selectedCloud, isAwsSelected, ipAddress, publicIP, instanceName, publicKey});
+  }
 }
