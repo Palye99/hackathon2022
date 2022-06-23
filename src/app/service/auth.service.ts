@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   authenticate(username: string, password: string): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/authenticate', { username, password }).pipe(
+    return this.http.post<any>('https://myinstantcode-back.ddns.net/authenticate', { username, password }).pipe(
       map(
         userData => {
           sessionStorage.setItem('username', username);
